@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/all.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap-reboot.css">
+    <link rel="stylesheet" href="CSS/bootstrap-utilities.css">
+    <link rel="stylesheet" href="CSS/bootstrap.css">
+    <link rel="stylesheet" href="CSS/index.css">
+    <title>Inventory</title>
+</head>
+<body> 
+    <div class="formcontainer" style="background-color: rgb(215, 215, 215)">
+        <h1 class="text-center  p-5">Inventory Tracker</h1>
+        <div class="container p-5">
+            <ul class="p-0">
+                <li class="mb-3">
+                    <label for="ProductName" class="fs-3">Product Name</label>
+                    <input type="text" id="ProductName" class="form-control" oninput="checkRegex(ProductName)">
+                    <div class="regxCorrection"></div>
+                </li>
+                <li class="mb-3">
+                    <label for="ProductPrice" class="fs-3">Product Price</label>
+                    <input type="text" id="ProductPrice" class="form-control" oninput="checkRegex(ProductPrice)">
+                    <div class="regxCorrection"></div>
+                </li>
+                <li class="mb-3">
+                    <label for="ProductDesc" class="fs-3">Product Desc</label>
+                    <input type="text" id="ProductDesc" class="form-control" oninput="checkRegex(ProductDesc)">
+                    <div class="regxCorrection"></div>
+                </li>
+                <li class="mb-3">
+                    <label for="ProductCat" class="fs-3">Product Category</label>
+                    <input type="text" id="ProductCat" class="form-control" oninput="checkRegex(ProductCat)">
+                    <div class="regxCorrection"></div>
+                </li>
+            </ul>
+            <button class="btn btn-success my-4 fs-4" id="ButtonChange" onclick="buttonAction()">Add Product</button>
+            <button class="btn btn-danger my-4 fs-4 d-none" id="CancelButton" onclick="cancelUpdate()">Cancel</button>
+        </div>
+    </div>
+
+    <div class="productcontainer p-5">
+        <div class="container mb-4 d-flex justify-content-center">
+            <input type="search" placeholder="Search for product name" class="form-control w-50" oninput="searchProduct(this.value)">
+        </div>
+        <div class="container d-flex justify-content-center pt-4">
+            <table class="table table-striped">
+                <thead class="fs-4 text-center">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Desc</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </thead>
+                <tbody class="fs-5 text-center" id="productTable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="JS/index.js"></script>
+</body>
+</html>
